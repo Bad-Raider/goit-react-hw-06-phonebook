@@ -1,9 +1,21 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import ContactItem from "../ContactItem/ContactItem";
 import css from './ContactList.module.css';
+import { useSelector } from "react-redux";
 
+const ContactList = () => {
 
-const ContactList = ({ arrContacts, onDeleteContact }) => {
+    const { contacts, filter } = useSelector(state => state);
+    
+    const getVisibleContacts = () => {
+        const normalizedFilter = filter.toLowerCase();
+        return contacts.filter(contact =>
+            contact.name.toLowerCase().includes(normalizedFilter),
+        );
+    };
+
+    const arrContacts = getVisibleContacts();
+
     return (
         <>
             <ul className={css.list}>
@@ -13,7 +25,6 @@ const ContactList = ({ arrContacts, onDeleteContact }) => {
                         id={id}
                         name={name}
                         number={number}
-                        onDeleteContact={onDeleteContact}
                     />
                 ))}
             </ul>
@@ -23,7 +34,7 @@ const ContactList = ({ arrContacts, onDeleteContact }) => {
 
 export default ContactList;
 
-ContactList.propTypes = {
-    arrContacts: PropTypes.array.isRequired,
-    onDeleteContact: PropTypes.func.isRequired
-};
+// ContactList.propTypes = {
+//     arrContacts: PropTypes.array.isRequired,
+//     onDeleteContact: PropTypes.func.isRequired
+// };
