@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addContact } from "redux/actions";
+import { addContact } from "redux/contacts/contactsActions";
 import Container from "./Container/Container";
 import ContactForm from "./ContactForm/ContactForm";
 import ContactList from "./Contacts/ContactList/ContactList";
@@ -9,8 +9,6 @@ import { nanoid } from "nanoid";
 
 
 const App = () => { 
-
-
 
   const { contacts } = useSelector(state => state);
   const dispatch = useDispatch();

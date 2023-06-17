@@ -1,7 +1,7 @@
 // import PropTypes from "prop-types";
 import css from './ContactFilter.module.css';
 import { useSelector, useDispatch } from "react-redux";
-import { addFilter } from "redux/actions";
+import { addFilter } from 'redux/filter/filterActions'; 
 
 
 const ContactFilter = () => {
@@ -10,21 +10,21 @@ const ContactFilter = () => {
   const dispatch = useDispatch();
 
 
-    const handleChange = evt => {
+  const handleChange = evt => {
     dispatch(addFilter(evt.target.value));
   };
 
   return (
-      <>
-          <p>Find contacts by name</p>
-          <input
-          className={css.contactFilter}
-              type="text"
-              value={filter}
-              onChange={handleChange}
-          />
-            </>
-        )  
+    <>
+      <p>Find contacts by name</p>
+      <input
+        className={css.contactFilter}
+        type="text"
+        value={filter}
+        onChange={handleChange}
+      />
+    </>
+  )
 };
 
 
