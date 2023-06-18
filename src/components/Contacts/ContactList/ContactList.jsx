@@ -1,4 +1,3 @@
-// import PropTypes from "prop-types";
 import ContactItem from "../ContactItem/ContactItem";
 import css from './ContactList.module.css';
 import { useSelector } from "react-redux";
@@ -6,9 +5,6 @@ import { useSelector } from "react-redux";
 const ContactList = () => {
 
     const {contacts, filter} = useSelector(state => state);
-    // console.log('state', state);
-    console.log('contacts', contacts);
-    console.log('filter', filter);
 
     const getVisibleContacts = () => {
         const normalizedFilter = filter.toLowerCase();
@@ -36,8 +32,3 @@ const ContactList = () => {
 };
 
 export default ContactList;
-
-// ContactList.propTypes = {
-//     arrContacts: PropTypes.array.isRequired,
-//     onDeleteContact: PropTypes.func.isRequired
-// };

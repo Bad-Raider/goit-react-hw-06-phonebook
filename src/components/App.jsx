@@ -1,12 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addContact } from "redux/contacts/contactsActions";
+import { addContact } from "redux/contactsSlice";
 import Container from "./Container/Container";
 import ContactForm from "./ContactForm/ContactForm";
 import ContactList from "./Contacts/ContactList/ContactList";
 import ContactFilter from "./ContactFilter/ContactFilter";
 import { nanoid } from "nanoid";
-
-
 
 const App = () => { 
 
@@ -14,6 +12,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   const addNewContacts = (name, number) => {
+
     const contactExists = contacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
@@ -28,20 +27,6 @@ const App = () => {
       dispatch(addContact(newContact));
     };
   };
-
-  
-  // useEffect(() => {
-  //   const localStorageContact = localStorage.getItem("contacts");
-  //   const parselocalStorageContact = JSON.parse(localStorageContact);
-
-  //   if(parselocalStorageContact) setContacts(parselocalStorageContact);
-  // }, []);
-  
-  // useEffect(() => {
-  //   if (contacts.length > 0) localStorage.setItem("contacts", JSON.stringify(contacts)); 
-  // }, [contacts]);
-
-  
 
   return (
     <Container>

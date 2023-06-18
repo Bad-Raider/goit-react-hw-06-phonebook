@@ -1,7 +1,6 @@
-// import PropTypes from "prop-types";
 import css from './ContactFilter.module.css';
 import { useSelector, useDispatch } from "react-redux";
-import { addFilter } from 'redux/filter/filterActions'; 
+import { addFilter } from 'redux/filterSlice'; 
 
 
 const ContactFilter = () => {
@@ -30,8 +29,3 @@ const ContactFilter = () => {
 
 export default ContactFilter;
 
-
-//   ContactFilter.propTypes = {
-//       value: PropTypes.string.isRequired,
-//       onChange: PropTypes.func.isRequired,
-// };
